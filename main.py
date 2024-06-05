@@ -26,7 +26,7 @@ SCREEN_HEIGHT = 600
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         super(Player, self).__init__()
-        self.surf = pygame.image.load("jet.png").convert()
+        self.surf = pygame.image.load("images/jet.png").convert()
         self.surf.set_colorkey((255, 255, 255), RLEACCEL)
         self.rect = self.surf.get_rect()
 
@@ -56,7 +56,7 @@ class Player(pygame.sprite.Sprite):
 class Enemy(pygame.sprite.Sprite):
     def __init__(self):
         super(Enemy, self).__init__()
-        self.surf = pygame.image.load("missile.png").convert()
+        self.surf = pygame.image.load("images/missile.png").convert()
         self.surf.set_colorkey((255, 255, 255), RLEACCEL)
         self.rect = self.surf.get_rect(
             center=(
@@ -78,7 +78,7 @@ class Enemy(pygame.sprite.Sprite):
 class Cloud(pygame.sprite.Sprite):
     def __init__(self):
         super(Cloud, self).__init__()
-        self.surf = pygame.image.load("cloud.png").convert()
+        self.surf = pygame.image.load("images/cloud.png").convert()
         self.surf.set_colorkey((0, 0, 0), RLEACCEL)
         # The starting position is randomly generated
         self.rect = self.surf.get_rect(
@@ -100,7 +100,7 @@ class Cloud(pygame.sprite.Sprite):
 class Bullet(pygame.sprite.Sprite):
     def __init__(self, x, y):
         super(Bullet, self).__init__()
-        self.surf = pygame.image.load("bullet.png ").convert()
+        self.surf = pygame.image.load("images/bullet.png ").convert()
         self.surf.set_colorkey((0, 0, 0), RLEACCEL)
         self.rect = self.surf.get_rect(center=(x, y))
         self.speed = 10
@@ -117,7 +117,7 @@ class Bullet(pygame.sprite.Sprite):
 class Boss(pygame.sprite.Sprite):
     def __init__(self):
         super(Boss, self).__init__()
-        self.surf = pygame.image.load("boss.png").convert()
+        self.surf = pygame.image.load("images/boss.png").convert()
         self.surf.set_colorkey((0, 0, 0), RLEACCEL)
         self.rect = self.surf.get_rect(
             center=(
@@ -180,7 +180,7 @@ def start_menu(screen):
     instruction_image = render_text_with_outline(instruction_text, font, text_color, outline_color, outline_width)
 
     # Load the background image
-    background = pygame.image.load("start_background.jpg").convert()
+    background = pygame.image.load("images/start_background.jpg").convert()
 
     while menu_running:
         screen.blit(background, (0, 0))  # Draw the background image
@@ -239,14 +239,14 @@ screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 clock = pygame.time.Clock()
 
 # Load and play background music
-pygame.mixer.music.load("Fortunate Son.mp3")
+pygame.mixer.music.load("sounds/Fortunate Son.mp3")
 pygame.mixer.music.play(loops=-1)
 
 # Load all sound files
-move_up_sound = pygame.mixer.Sound("Rising_putter.ogg")
-move_down_sound = pygame.mixer.Sound("Falling_putter.ogg")
-collision_sound = pygame.mixer.Sound("Collision.ogg")
-exposion_sound = pygame.mixer.Sound("exposion.mp3")
+move_up_sound = pygame.mixer.Sound("sounds/Rising_putter.ogg")
+move_down_sound = pygame.mixer.Sound("sounds/Falling_putter.ogg")
+collision_sound = pygame.mixer.Sound("sounds/Collision.ogg")
+exposion_sound = pygame.mixer.Sound("sounds/exposion.mp3")
 
 # Display the start menu
 start_menu(screen)
